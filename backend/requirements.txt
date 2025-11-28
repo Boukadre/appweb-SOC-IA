@@ -1,0 +1,47 @@
+# ============================================
+# Core Framework
+# ============================================
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+httpx
+requests
+
+# ============================================
+# Data & Settings
+# ============================================
+pydantic
+pydantic-settings
+sqlalchemy
+alembic
+aiofiles
+
+# ============================================
+# Security Tools (Modules)
+# ============================================
+passlib[bcrypt]
+python-jose[cryptography]
+bcrypt
+zxcvbn-python
+builtwith
+beautifulsoup4
+
+# ============================================
+# IA & Data Science (The Heavy Stuff)
+# ============================================
+# On laisse pip choisir la version compatible avec votre Windows
+torch
+transformers
+scipy
+numpy
+scikit-learn
+jinja2
+
+# ============================================
+# Testing & Code Quality
+# ============================================
+pytest
+pytest-asyncio
+black
+flake8

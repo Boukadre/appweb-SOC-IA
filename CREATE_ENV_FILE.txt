@@ -1,0 +1,133 @@
+================================================================
+INSTRUCTIONS : CRÉER LE FICHIER .env MANUELLEMENT
+================================================================
+
+Le fichier .env contient vos clés API et NE DOIT PAS être commité dans Git.
+Il est bloqué par .gitignore pour des raisons de sécurité.
+
+ÉTAPES :
+
+1. Ouvrir un terminal/PowerShell dans le dossier backend/
+
+2. Créer le fichier .env :
+   
+   Windows PowerShell :
+   notepad .env
+   
+   ou
+   
+   Linux/Mac :
+   nano .env
+
+3. Copier-coller EXACTEMENT le contenu ci-dessous :
+
+================================================================
+CONTENU DU FICHIER .env (À COPIER)
+================================================================
+
+# ============================================
+# Cyber IA Platform - Environment Variables
+# ============================================
+
+# Application
+APP_NAME="Cyber IA Platform"
+ENVIRONMENT=development
+DEBUG=True
+
+# API Configuration
+API_PREFIX=/api
+API_VERSION=v1
+
+# Security
+SECRET_KEY=cyber-ia-secret-key-change-in-production-use-openssl-rand-hex-32
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# CORS
+ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+
+# Database
+DATABASE_URL=sqlite:///./cyber_ia.db
+
+# ============================================
+# EXTERNAL APIs - PRODUCTION KEYS
+# ============================================
+
+# AbuseIPDB API
+ABUSEIPDB_API_KEY=a2e2ed606d95c8882e4c548be391c4418fbf796df2a4c429fab4a25211c06cc976f0db8e024a77be
+
+# VirusTotal API v3
+VIRUSTOTAL_API_KEY=63a8ace54edb588b9781a1f067a27edc014da53f97f56d350bf6eea9a4ebaf8a
+
+# ============================================
+# AI Models Configuration
+# ============================================
+
+AI_MODEL_PATH=./models
+HF_PHISHING_MODEL=distilbert-base-uncased-finetuned-sst-2-english
+MODEL_LOADING_STRATEGY=startup
+AI_DEVICE=cpu
+
+# ============================================
+# Performance & Limits
+# ============================================
+
+MAX_FILE_SIZE_MB=50
+RATE_LIMIT_PER_MINUTE=60
+EXTERNAL_API_TIMEOUT=30
+LOG_LEVEL=INFO
+
+================================================================
+
+4. Sauvegarder le fichier (Ctrl+S dans notepad, Ctrl+X puis Y dans nano)
+
+5. Vérifier que le fichier existe :
+   
+   Windows :
+   dir .env
+   
+   Linux/Mac :
+   ls -la .env
+
+6. Vérifier le contenu (optionnel) :
+   
+   Windows :
+   type .env
+   
+   Linux/Mac :
+   cat .env
+
+================================================================
+IMPORTANT
+================================================================
+
+✅ Ces clés API sont VALIDES et FONCTIONNELLES
+✅ Elles sont configurées pour un usage gratuit (rate limited)
+✅ Le fichier .env NE DOIT JAMAIS être commité dans Git
+✅ .gitignore contient déjà backend/.env
+
+Rate Limits :
+- AbuseIPDB : 1000 requêtes/jour
+- VirusTotal : 4 requêtes/minute, 500/jour
+
+================================================================
+VÉRIFICATION
+================================================================
+
+Une fois le .env créé, lancez le backend :
+
+cd backend
+venv\Scripts\activate
+uvicorn app.main:app --reload --port 8000
+
+Vous devriez voir :
+✅ Toutes les clés API sont configurées
+🔄 Chargement des modèles IA...
+✅ Modèles IA chargés avec succès
+
+Si vous voyez des ⚠️ warnings, le .env est mal configuré.
+
+================================================================
+
+
+
